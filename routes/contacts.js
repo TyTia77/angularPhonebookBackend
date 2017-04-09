@@ -4,10 +4,10 @@ const router = express.Router();
 
 var connection = mysql.createConnection({
     // properties ...
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'angular'
+    host: 'us-cdbr-iron-east-03.cleardb.net',
+    user: 'b799d98b9bc760',
+    password: 'cd46dbc2',
+    database: 'heroku_0b3cb1d3de5250e'
 });
 
 connection.connect(function(error){
@@ -24,15 +24,15 @@ router.get('/', function(req, res){
 
     // res.send('testing');
 
-    connection.query("SELECT * FROM  users", function(error, rows, fields){
+    connection.query("SELECT * FROM  contacts", function(error, rows, fields){
         if(!!error){
             console.log('query error');
         } else{
-            rows.map((e) => console.log(e.username));
+            // rows.map((e) => console.log(e.username));
             console.log('rows ' +rows);
             console.log('fields ' +fields);
 
-            res.send({'rows': rows, 'fields': fields})
+            res.send({'contactList': rows})
         }
     });
 

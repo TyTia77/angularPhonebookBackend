@@ -8,7 +8,7 @@ const app = express();
 var port = process.env.PORT || 5000;
 app.use(express.static(__dirname));
 
-app.use('/users', require('./routes/users'));
+app.use('/contacts', require('./routes/contacts'));
 app.use('/party', require('./routes/party'));
 
 app.listen(port, function(){
